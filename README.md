@@ -147,11 +147,16 @@ A scatter plot explores the relationship between monthly temperature and rainfal
 ### 1. Clone the repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/laviniaroscia/christchurch-climate-data-analysis.git
 cd christchurch-climate-data-analysis
 ```
+### 2. Data requirements
 
-### 2. Create a virtual environment
+The original climate datasets are not distributed with this repository due to data licensing restrictions.
+
+To reproduce the analysis, climate data must be obtained separately from the NIWA DataHub and placed in the `data/` directory using the filenames expected by `src/main.py`.
+
+### 3. Create a virtual environment
 
 ```bash
 python -m venv .venv
@@ -169,13 +174,13 @@ On macOS/Linux:
 source .venv/bin/activate
 ```
 
-### 3. Install the dependencies
+### 4. Install the dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Run the application
+### 5. Run the application
 
 ```bash
 python src/main.py
