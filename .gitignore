@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+.venv/
+venv/
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# NIWA / Earth Sciences New Zealand climate data
+# Source datasets are excluded due to redistribution restrictions.
+data/*.csv
