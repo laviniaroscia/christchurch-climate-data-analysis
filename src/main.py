@@ -275,28 +275,41 @@ def climate_line_plot(output_df, location, year):
 
     rain_column, temperature_column = get_climate_columns(location)
 
-    plt.figure(figsize=(10, 6))
+    fig, ax1 = plt.subplots(figsize=(10, 6))
 
-    plt.plot(
+    # Rainfall - left y-axis
+    line1 = ax1.plot(
         output_df["Month"],
         output_df[rain_column],
         marker="o",
+        color="tab:blue",
         label="Rainfall",
     )
 
-    plt.plot(
+    ax1.set_xlabel("Month")
+    ax1.set_ylabel("Rainfall (mm)")
+    ax1.tick_params(axis="x", rotation=45)
+
+    # Temperature - right y-axis
+    ax2 = ax1.twinx()
+
+    line2 = ax2.plot(
         output_df["Month"],
         output_df[temperature_column],
         marker="o",
+        color="tab:orange",
         label="Temperature",
     )
 
+    ax2.set_ylabel("Temperature (°C)")
+
+    # Combined legend
+    lines = line1 + line2
+    labels = [line.get_label() for line in lines]
+    ax1.legend(lines, labels, loc="upper right")
+
     plt.title(f"Climate Trends - {location} ({year})")
-    plt.xlabel("Month")
-    plt.ylabel("Climate Data")
-    plt.xticks(rotation=45)
-    plt.legend()
-    plt.tight_layout()
+    fig.tight_layout()
     plt.show()
 
 
